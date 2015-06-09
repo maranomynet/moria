@@ -11,10 +11,16 @@ Moria aims to solve these problems by producing a Mithril-compatible route hash 
 
 * Nested routes
 * Setup functions to run when a route is matched
+    * On route, a new variable is created and passed in to each setup function in sequence, before finally being passed to the endpoint module's controller: this allows for the iterative creation of a 'route model'
 * Redirects
+    * Assign a Mithril-tokenized URI string as a route endpoint to create a dynamic redirect in the route hash
+    * Invoke `moria.redirect( MithrilURI )` in application code to redirect to that URI
+* Params
+    * Invoke `moria.params()` to return a hash of all current URI params: useful as a top-level setup function to give all end-point module controllers a map of current app state
 
 # Roadmap
 
+* Extend redirect functionality to allow automatic param assignment
 * Nested modules (currently, each route endpointmust specify the complete module structure you want to render)
 * ...
 
